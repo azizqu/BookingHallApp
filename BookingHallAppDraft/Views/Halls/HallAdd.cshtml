@@ -1,7 +1,29 @@
-﻿
+﻿@model BookingHallAppDraft.Models.Hall
 @{
     ViewBag.Title = "HallAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Hall Form</h2>
+@using (Html.BeginForm("Save", "Halls"))
+{
+    @Html.ValidationSummary()
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.HallName)
+        @Html.TextBoxFor(m => m.HallName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.HallName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.MaxOccupancy)
+        @Html.TextBoxFor(m => m.MaxOccupancy, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MaxOccupancy)
+    </div>
+
+
+    @Html.Hidden("HallID", @Model != null ? Model.HallID : 0)
+    <button type="submit" class="btn btn-default">Submit</button>
+}
 

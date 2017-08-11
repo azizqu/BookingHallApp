@@ -1,7 +1,32 @@
-﻿
+﻿@model List<BookingHallAppDraft.Models.Hall>
 @{
     ViewBag.Title = "HallList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Halls List</h2>
+<h2>Hall List</h2>
 
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Hall Name</th>
+        <th>Max Occupancy</th>
+        <th> Actions </th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+    @foreach (var hall in Model)
+    {
+        <tr>
+
+            <td>@Html.ActionLink(hall.HallName, "HallList", "Halls", new { id = hall.HallID }, null)</td>
+            <td>@hall.HallName</td>
+            <td>@hall.MaxOccupancy</td>
+            <td><a href="/Halls/Edit/@hall.HallID">Edit </a>|| <a class="deleteHall" id="deleteHall" href="/Halls/Delete/@hall.HallID" data-hallid="@hall.HallID">  Delete</a></td>
+        </tr>
+    }
+    </tbody>
+</table>
+<a href="/Halls/HallAdd"> Add New Hall </a>
