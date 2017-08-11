@@ -25,7 +25,7 @@
             <td>@Html.ActionLink(client.Name, "ClientList","Clients", new {id = client.ClientId}, null)</td>               
             <td>@client.Email</td>
             <td>@client.Phone</td>
-            <td><a href="/Customers/Edit/@client.ClientId">Edit </a>      ||      <a class ="deleteCustomer" id="deleteCustomer" href="/customers/Delete/@client.ClientId" data-customerid= "@client.ClientId">  Delete</a></td>
+            <td><a href="/Clients/Edit/@client.ClientId">Edit </a>|| <a class ="deleteClient" id="deleteClient" href="/Clients/Delete/@client.ClientId" data-clientid= "@client.ClientId">  Delete</a></td>
         </tr>
     }
     </tbody>

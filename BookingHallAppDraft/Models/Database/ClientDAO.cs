@@ -65,9 +65,17 @@ namespace BookingHallAppDraft.Models.Database
         public static void Update(Client client)
         {
             var sql = string.Format("Update Clients  set Name = '{0}'" +
-                                    ", Email = '{1}' ,  Phone = '{2}'", client.Name, client.Email, client.Phone);
+                                    ", Email = '{1}' ,  Phone = '{2}' Where ClientID={3}", client.Name, client.Email, client.Phone, client.ClientId);
             MyDB.GetInstance().ExecuteSql(sql);
 
+        }
+
+        public static void Delete(Client client)
+        {
+            var db = MyDB.GetInstance();
+            var sql =
+                string.Format("Delete From  Clients where ClientID = {0}", client.ClientId);
+            db.ExecuteSql(sql);
         }
     }
 }

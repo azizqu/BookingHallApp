@@ -53,8 +53,11 @@ namespace BookingHallAppDraft.Controllers
         }
         public ActionResult Delete(int id)
         {
-
-            return View();
+            var client = ClientDAO.GetClient(id);
+            if (client == null)
+                return HttpNotFound();
+            ClientDAO.Delete(client);
+            return RedirectToAction("ClientList");
         }
     }
 }
