@@ -40,7 +40,6 @@ namespace BookingHallAppDraft.Controllers
                 ClientDAO.Update(client);
             }
 
-
             return RedirectToAction("ClientList");
         }
 
@@ -51,6 +50,11 @@ namespace BookingHallAppDraft.Controllers
                 return HttpNotFound();
             
             return View("ClientAdd", client);
+        }
+        public ActionResult Delete(int id)
+        {
+
+            return View();
         }
     }
 }

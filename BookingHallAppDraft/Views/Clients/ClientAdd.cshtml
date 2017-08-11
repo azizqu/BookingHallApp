@@ -1,6 +1,7 @@
 ﻿@model BookingHallAppDraft.Models.Client
 @{
     ViewBag.Title = "ClientAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Add New Client Form</h2>
@@ -8,10 +9,10 @@
 @using (Html.BeginForm("Save", "Clients"))
 {
     @Html.ValidationSummary()
-    ;
+    
 
     <div class="form-group">
-        @Html.LabelFor(m => m.Name) @*creating a label and textbox for us...using lambda expression*@
+        @Html.LabelFor(m => m.Name) 
         @Html.TextBoxFor(m => m.Name, new {@class = "form-control"})
         @Html.ValidationMessageFor(m => m.Name)
     </div>
