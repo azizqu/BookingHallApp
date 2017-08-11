@@ -17,7 +17,7 @@ namespace BookingHallAppDraft.Models.Database
         {
             //update this line based on your SQL server URL (machine name, instance name and database name)
             // the option MultipleActiveResultSets=true allow your connection to have multiple dataset open at the same time
-            _connection = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=BookingHall;Data Source=AZIZ-PC;MultipleActiveResultSets=true");
+            _connection = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=BookingHalls;Data Source=AZIZ-PC;MultipleActiveResultSets=true");
         }
 
         public static MyDB GetInstance()

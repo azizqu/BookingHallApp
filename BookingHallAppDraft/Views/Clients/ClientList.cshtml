@@ -1,0 +1,31 @@
+﻿@model List<BookingHallAppDraft.Models.Client>
+@{
+    ViewBag.Title = "ClientList";
+}
+
+<h2>Clients List</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Customer Name</th>           
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th> Actions </th>          
+    </tr>
+    </thead>
+    <tbody>
+    
+ 
+    @foreach (var client in Model)
+    {
+        <tr>
+            @*<td><a href ="/Customers/Details/@customer.Id">@customer.Name</a></td>*@
+            <td>@Html.ActionLink(client.Name, "ClientList","Clients", new {id = client.ClientId}, null)</td>               
+            <td>@client.Email</td>
+            <td>@client.Phone</td>
+            <td><a href="/Customers/Edit/@client.ClientId">Edit </a>      ||      <a class ="deleteCustomer" id="deleteCustomer" href="/customers/Delete/@client.ClientId" data-customerid= "@client.ClientId">  Delete</a></td>
+        </tr>
+    }
+    </tbody>
+</table>
