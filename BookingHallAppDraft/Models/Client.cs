@@ -16,6 +16,7 @@ namespace BookingHallAppDraft.Models
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Email is Required")]
+        [Display(Name = "Email Address")]
         [EmailAddress]
         public string Email { get; set; }
 

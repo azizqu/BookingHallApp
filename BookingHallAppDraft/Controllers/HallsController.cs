@@ -20,6 +20,7 @@ namespace BookingHallAppDraft.Controllers
         // Add Hall
         public ActionResult HallAdd()
         {
+           
             return View();
         }
 
