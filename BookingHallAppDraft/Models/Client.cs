@@ -9,7 +9,6 @@ namespace BookingHallAppDraft.Models
 {
     public class Client
     {
-   
         public int ClientId { get; set; }
 
         [Required(ErrorMessage = "Name is Required")]
