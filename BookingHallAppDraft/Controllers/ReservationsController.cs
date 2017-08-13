@@ -21,5 +21,10 @@ namespace BookingHallAppDraft.Controllers
             //send to reservationAdd form
             return View();
         }
+
+        public ActionResult Book()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
