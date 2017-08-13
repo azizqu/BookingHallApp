@@ -186,6 +186,7 @@
     <Compile Include="Controllers\HallsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ReservationsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -197,6 +198,8 @@
     <Compile Include="Models\Hall.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Reservations.cs" />
+    <Compile Include="Models\ViewModels\ReservationsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -498,6 +501,8 @@
     <Content Include="Views\Clients\ClientList.cshtml" />
     <Content Include="Views\Halls\HallAdd.cshtml" />
     <Content Include="Views\Halls\HallList.cshtml" />
+    <Content Include="Views\Reservations\ReservationsList.cshtml" />
+    <Content Include="Views\Reservations\ReservationsAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
