@@ -195,6 +195,7 @@
     <Compile Include="Models\Database\ClientDAO.cs" />
     <Compile Include="Models\Database\HallDAO.cs" />
     <Compile Include="Models\Database\MyDB.cs" />
+    <Compile Include="Models\Database\ReservationDAO.cs" />
     <Compile Include="Models\Hall.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
