@@ -1,7 +1,33 @@
 ﻿
+@model List<BookingHallAppDraft.Models.Reservations>
 @{
     ViewBag.Title = "ReservationsList";
 }
 
 <h2>ReservationsList</h2>
 
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Client</th>
+        <th>Hall ID</th>
+        <th>Date</th>
+       
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var reservation in Model)
+    {
+        <tr>
+            <td>@reservation.ClientId</td>
+            <td>@reservation.HallId</td>
+            <td>@reservation.Date</td>
+          
+        </tr>
+    }
+        
+        
+
+    </tbody>
+</table>
