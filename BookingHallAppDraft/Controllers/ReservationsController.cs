@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations.Model;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
+using BookingHallAppDraft.Models;
+using BookingHallAppDraft.Models.Database;
+using BookingHallAppDraft.Models.ViewModels;
 
 namespace BookingHallAppDraft.Controllers
 {
@@ -19,12 +24,18 @@ namespace BookingHallAppDraft.Controllers
         public ActionResult ReservationsAdd()
         {
             //send to reservationAdd form
+            var clients = ClientDAO.GetClients();
+            var halls = HallDAO.GetHalls();
+
             return View();
         }
 
-        public ActionResult Book()
+        public ActionResult Book(Reservations reservations)
         {
-            throw new NotImplementedException();
+            if (!ModelState.IsValid)
+                return View("ReservationsList", reservations);
+
+            return View("ReservationsList");
         }
     }
 }

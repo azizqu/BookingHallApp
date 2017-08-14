@@ -35,7 +35,7 @@ namespace BookingHallAppDraft.Controllers
         {
             if (!ModelState.IsValid)
                 return View("ClientAdd", client);
-
+            
             var clientId = int.Parse(Request["clientID"]);
             client.ClientId = clientId;
 
