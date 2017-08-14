@@ -9,10 +9,11 @@
 <table class="table clients table-striped">
     <thead>
     <tr>
-        <th>Client Name</th>           
+        <th>Client ID</th>
+        <th>Client Name</th>
         <th>Email</th>
         <th>Phone Number</th>
-        <th> Actions </th>          
+        <th> Actions </th>
     </tr>
     </thead>
     <tbody>
@@ -21,7 +22,7 @@
     @foreach (var client in Model)
     {
         <tr>
-            
+            <td>@client.ClientId</td>
             <td>@Html.ActionLink(client.Name, "ClientList","Clients", new {id = client.ClientId}, null)</td>               
             <td>@client.Email</td>
             <td>@client.Phone</td>

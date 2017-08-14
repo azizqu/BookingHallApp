@@ -9,6 +9,8 @@ namespace BookingHallAppDraft.Models.ViewModels
 {
     public class ReservationsViewModel
     {
+        public Reservations ReservationID { get; set; }
+
         [Display (Name="Clients Information")]
         public List<Client> Clients { get; set; }
         

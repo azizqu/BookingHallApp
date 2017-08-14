@@ -38,7 +38,7 @@ namespace BookingHallAppDraft.Controllers
             if (!ModelState.IsValid)
                 return View("ReservationsList", reservations);
 
-            return View("ReservationsList");
+            return RedirectToAction("ReservationsList");
         }
     }
 }

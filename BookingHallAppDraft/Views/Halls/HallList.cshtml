@@ -9,6 +9,7 @@
 <table id="halls" class="table halls table-striped">
     <thead>
     <tr>
+        <th>Hall ID</th>
         <th>Hall Name</th>
         <th>Max Occupancy</th>
         <th> Actions </th>
@@ -20,7 +21,7 @@
     @foreach (var hall in Model)
     {
         <tr>
-
+            <td>@hall.HallID</td>
             <td>@Html.ActionLink(hall.HallName, "HallList", "Halls", new { id = hall.HallID }, null)</td>
             <td>@hall.MaxOccupancy</td>
             <td><a href="/Halls/Edit/@hall.HallID">Edit </a>|| <a class="deleteHall" id="deleteHall" href="/Halls/Delete/@hall.HallID" data-hallid="@hall.HallID">  Delete</a></td>

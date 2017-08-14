@@ -1,10 +1,13 @@
 ﻿
-@model BookingHallAppDraft.Models.ViewModels.ReservationsViewModel
+@model BookingHallAppDraft.Models.Reservations
 @{
     ViewBag.Title = "ReservationsAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ReservationsAdd</h2>
+<h2>Make Reservation</h2>
+<p> Enter Client Id, Hall Id and Date to Make a new Reservation. Refer to <a href="../Clients/ClientList">For Client Id Information</a> And <a href="../Halls/HallList"> For Hall Id Information </a></p>
+
 @using (Html.BeginForm("Book", "Reservations"))
 {
     @Html.ValidationSummary()
@@ -12,17 +15,17 @@
         @* @Html.DropDownListFor(x=> x.ClientName, 
         new SelectList(Model.Clients, "ClientId", "Name"), "--Select Client--")*@
         
-        @Html.LabelFor(m => m.ClientName.ClientId)
-        @Html.TextBoxFor(m=>m.ClientName.ClientId)
+        @Html.LabelFor(m => m.ClientId)
+        @Html.TextBoxFor(m=>m.ClientId)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.HallName.HallID)
-        @Html.TextBoxFor(m => m.HallName.HallID)
+        @Html.LabelFor(m => m.HallId)
+        @Html.TextBoxFor(m => m.HallId)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Date.Date)
-        @Html.TextBoxFor(m => m.Date.Date)
-        @Html.ValidationMessageFor(m=>m.Date.Date)
+        @Html.LabelFor(m => m.Date)
+        @Html.TextBoxFor(m => m.Date)
+        @Html.ValidationMessageFor(m=>m.Date)
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-default">Book Reservation</button>
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
 using System.Web.WebPages.Html;
 using BookingHallAppDraft.Models.ViewModels;
 
@@ -38,7 +39,7 @@ namespace BookingHallAppDraft.Models.Database
         {
             var db = MyDB.GetInstance();
             var sql =
-                string.Format("Select * from Reservations where ResID = {0}", reservations.ReservationId);
+                string.Format("");
             var results = db.ExecuteSelectSql(sql);
             if (results.HasRows)
             {
@@ -53,24 +54,34 @@ namespace BookingHallAppDraft.Models.Database
             }
             return null;
         }
+        /*
+         SELECT Clients.Name, Halls.HallName, Reservations.Date
+from Reservations inner join Clients
+on Clients.ClientID=Reservations.ClientID
+inner join Halls
+on Halls.HallID=Reservations.HallID
+             
+             */
         //
+
+
+
         public static List<Reservations> GetReservations()
         {
 
             var reservations= new List<Reservations>();
             var results =
-                MyDB.GetInstance().ExecuteSelectSql("select * from Reservations");
+                MyDB.GetInstance().ExecuteSelectSql("SELECT Clients.Name, Halls.HallName, Reservations.Date FROM Reservations inner join Clients on Clients.ClientID=Reservations.ClientID inner join Halls on Halls.HallID=Reservations.HallID");
 
             while (results.Read())
             {
 
                 var reservation = new Reservations()
-                {
-                    ReservationId = (int)results["ResID"],
-                    ClientId = (int)results["ClientID"],
-                    HallId = (int)results["HallID"],
+                {                                //column db names
+                    //ReservationId = (int)results["ResID"],
+                    ClientName = results["Name"].ToString(),
+                    HallName = results["HallName"].ToString(),
                     Date = (DateTime)results["Date"]
-
                 };
 
                 reservations.Add(reservation);
@@ -79,6 +90,10 @@ namespace BookingHallAppDraft.Models.Database
 
             return reservations;
         }
+        //    ClientId = (int)results["ClientID"],
+        //HallId = (int)results["HallID"],
+
+
 
         public static Reservations GetAvailability(Hall hall,  Hall date)
         {

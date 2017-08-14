@@ -4,15 +4,16 @@
     ViewBag.Title = "ReservationsList";
 }
 
-<h2>ReservationsList</h2>
+<h2>Reservations List</h2>
 
 
 <table class="table table-bordered">
     <thead>
     <tr>
-        <th>Client</th>
-        <th>Hall ID</th>
+        <th>Client Name</th>
+        <th>Hall Name</th>
         <th>Date</th>
+        
        
     </tr>
     </thead>
@@ -20,10 +21,10 @@
     @foreach (var reservation in Model)
     {
         <tr>
-            <td>@reservation.ClientId</td>
-            <td>@reservation.HallId</td>
-            <td>@reservation.Date</td>
-          
+            <td>@reservation.ClientName</td>
+            <td>@reservation.HallName</td>
+            <td>@reservation.Date.ToShortDateString()</td>
+            
         </tr>
     }
         
