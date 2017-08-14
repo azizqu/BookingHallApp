@@ -12,12 +12,12 @@
         @* @Html.DropDownListFor(x=> x.ClientName, 
         new SelectList(Model.Clients, "ClientId", "Name"), "--Select Client--")*@
         
-        @Html.LabelFor(m => m.ClientName.Name)
-        @Html.TextBoxFor(m=>m.ClientName.Name)
+        @Html.LabelFor(m => m.ClientName.ClientId)
+        @Html.TextBoxFor(m=>m.ClientName.ClientId)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.HallName.HallName)
-        @Html.TextBoxFor(m => m.HallName.HallName)
+        @Html.LabelFor(m => m.HallName.HallID)
+        @Html.TextBoxFor(m => m.HallName.HallID)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Date.Date)

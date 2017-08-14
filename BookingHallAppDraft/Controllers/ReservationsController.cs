@@ -17,7 +17,9 @@ namespace BookingHallAppDraft.Controllers
         public ActionResult ReservationsList()
         {
             //implement reservationDAO to get list + datatables w edit and delete
-            return View();
+
+            var list = ReservationDAO.GetReservations();
+            return View(list);
         }
 
         // GET: Reservations/ReservationsAdd
@@ -32,6 +34,7 @@ namespace BookingHallAppDraft.Controllers
 
         public ActionResult Book(Reservations reservations)
         {
+            ReservationDAO.Create(reservations);
             if (!ModelState.IsValid)
                 return View("ReservationsList", reservations);
 
