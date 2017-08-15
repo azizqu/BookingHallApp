@@ -7,24 +7,23 @@
 <h2>Reservations List</h2>
 
 
-<table class="table table-bordered">
+<table class="table reservations table-striped">
     <thead>
     <tr>
+        <th>Reservation ID</th>
         <th>Client Name</th>
         <th>Hall Name</th>
         <th>Date</th>
-        
-       
     </tr>
     </thead>
     <tbody>
     @foreach (var reservation in Model)
     {
         <tr>
+            <td>@reservation.ReservationId</td>
             <td>@reservation.ClientName</td>
             <td>@reservation.HallName</td>
             <td>@reservation.Date.ToShortDateString()</td>
-            
         </tr>
     }
         
@@ -32,3 +31,9 @@
 
     </tbody>
 </table>
+@section scripts
+{
+    <script>
+        $(".reservations").DataTable();
+    </script>
+}

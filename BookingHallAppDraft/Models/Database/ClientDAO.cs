@@ -77,5 +77,12 @@ namespace BookingHallAppDraft.Models.Database
                 string.Format("Delete From  Clients where ClientID = {0}", client.ClientId);
             db.ExecuteSql(sql);
         }
+        public static void Delete(int id)
+        {
+            var db = MyDB.GetInstance();
+            var sql =
+                string.Format("Delete From Clients where ClientID = {0}", id);
+            db.ExecuteSql(sql);
+        }
     }
 }

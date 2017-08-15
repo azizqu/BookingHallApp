@@ -35,11 +35,11 @@ namespace BookingHallAppDraft.Models.Database
         }
 
 
-        public static Reservations GetReservation(Reservations reservations)
+        public static Reservations GetReservation(int id)
         {
             var db = MyDB.GetInstance();
             var sql =
-                string.Format("");
+                string.Format("select * from Reservations where ResID = {0}", id);
             var results = db.ExecuteSelectSql(sql);
             if (results.HasRows)
             {
@@ -65,20 +65,21 @@ on Halls.HallID=Reservations.HallID
         //
 
 
+        // To get list of reservations with joins from Halls and Clients Tables 
 
         public static List<Reservations> GetReservations()
         {
 
             var reservations= new List<Reservations>();
             var results =
-                MyDB.GetInstance().ExecuteSelectSql("SELECT Clients.Name, Halls.HallName, Reservations.Date FROM Reservations inner join Clients on Clients.ClientID=Reservations.ClientID inner join Halls on Halls.HallID=Reservations.HallID");
+                MyDB.GetInstance().ExecuteSelectSql("SELECT Clients.Name, Halls.HallName, Reservations.Date, Reservations.ResID FROM Reservations inner join Clients on Clients.ClientID=Reservations.ClientID inner join Halls on Halls.HallID=Reservations.HallID");
 
             while (results.Read())
             {
 
                 var reservation = new Reservations()
                 {                                //column db names
-                    //ReservationId = (int)results["ResID"],
+                    ReservationId = (int)results["ResID"],
                     ClientName = results["Name"].ToString(),
                     HallName = results["HallName"].ToString(),
                     Date = (DateTime)results["Date"]

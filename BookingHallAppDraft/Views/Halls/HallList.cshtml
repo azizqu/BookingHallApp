@@ -35,7 +35,28 @@
     <script>
         $(function ()
         {
-            $("#halls").DataTable(); 
+            $("#halls").DataTable();
+
+            $(".deleteHall").click(function (e) {
+                e.preventDefault();
+                console.log("Deleting...");
+                var $this = $(this);
+                bootbox.confirm("Are you sure?",
+                    function (confirm) {
+                        if (confirm)
+                            console.log($this.data("hallid"));
+                        $.ajax({
+                            type: 'DELETE',
+                            url: '/api/Halls/' + $this.data("hallid"),
+                            success: function (data) {
+                                console.log(data);
+                                $this.parents("tr").remove();
+                            }
+                        });
+                    });
+
+            });
+
         })
         
 

@@ -31,6 +31,14 @@ namespace BookingHallAppDraft.Models.Database
             db.ExecuteSql(sql);
         }
 
+        public static void Delete(int id)
+        {
+            var db = MyDB.GetInstance();
+            var sql =
+                string.Format("Delete From Halls where HallID = {0}", id);
+            db.ExecuteSql(sql);
+        }
+
 
         public static Hall GetHall(int id)
         {

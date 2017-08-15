@@ -8,10 +8,7 @@ using BookingHallAppDraft.Models.Database;
 
 
 
-/// <summary>
-/// ADD WEB API DoNT HAVE TO IMPLEMENT IT
-/// </summary>
-/// 
+
 namespace BookingHallAppDraft.Controllers
 {
     public class ClientsController : Controller

@@ -4,35 +4,32 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-
 using BookingHallAppDraft.Models;
 using BookingHallAppDraft.Models.Database;
 
 namespace BookingHallAppDraft.Controllers.api
 {
-    public class ClientsController : ApiController
+    public class HallsController : ApiController
     {
         // GET: Clients
         [HttpGet]
-        public IEnumerable<Client> GetClients()
+        public IEnumerable<Hall> GetClients()
         {
-            return ClientDAO.GetClients();
+            return HallDAO.GetHalls();
         }
 
         [HttpPost]
-        public string Create(Client client)
+        public string Create(Hall hall)
         {
-            ClientDAO.Create(client);
-            return "Client Created";
+            HallDAO.Create(hall);
+            return "Hall Created";
         }
 
         [HttpDelete]
         public int Delete(int id)
         {
-            ClientDAO.Delete(id);
+            HallDAO.Delete(id);
             return 1;
         }
-
-       
     }
 }
