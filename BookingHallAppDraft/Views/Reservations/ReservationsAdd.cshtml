@@ -16,15 +16,17 @@
         new SelectList(Model.Clients, "ClientId", "Name"), "--Select Client--")*@
         
         @Html.LabelFor(m => m.ClientId)
-        @Html.TextBoxFor(m=>m.ClientId)
+        @Html.TextBoxFor(m=>m.ClientId, new {@class ="form-control"})
+        @Html.ValidationMessageFor(m => m.ClientId)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.HallId)
-        @Html.TextBoxFor(m => m.HallId)
+        @Html.TextBoxFor(m => m.HallId, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.HallId)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Date)
-        @Html.TextBoxFor(m => m.Date)
+        @Html.TextBoxFor(m => m.Date, new { @class = "form-control" })
         @Html.ValidationMessageFor(m=>m.Date)
     </div>
     <button type="submit" class="btn btn-default">Book Reservation</button>
